@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 // const validator = require("validator");
-const DbName = "testdb-api";
-const connectionUrl = "mongodb://127.0.0.1:27017/" + DbName;
+// const DbName = "testdb-api";
+// const connectionUrl = "mongodb://127.0.0.1:27017/" + DbName;
 
-mongoose.connect(connectionUrl, (error, client) => {
+mongoose.connect(process.env.MONGODB_URL, (error, client) => {
   if (error) {
     return console.log(error);
   }

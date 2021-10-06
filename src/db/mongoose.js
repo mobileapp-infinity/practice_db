@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const DBName = "testdb-api";
-const connectionUrl = "mongodb://127.0.0.1:27017/" + DBName;
+// const DBName = "testdb-api";
+// const connectionUrl = "mongodb://127.0.0.1:27017/" + DBName;
 
 const User = mongoose.model("User", {
   name: {
@@ -36,7 +36,7 @@ const UserTask = mongoose.model("User-Task", {
   },
 });
 
-mongoose.connect(connectionUrl, (error, client) => {
+mongoose.connect(process.env.MONGODB_URL, (error, client) => {
   if (error) {
     return console.log(error);
   }
